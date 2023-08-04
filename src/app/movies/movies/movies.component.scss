@@ -1,3 +1,16 @@
 table {
   width: 100%;
 }
+
+.loading-spinner {
+  background: #131313;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  stroke: #000000;
+}
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: white;
+}

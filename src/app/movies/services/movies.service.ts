@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { delay, first, tap } from 'rxjs';
+
 import { Movie } from '../model/movie';
 
 @Injectable({
@@ -7,11 +9,15 @@ import { Movie } from '../model/movie';
 })
 export class MoviesService {
 
+  private readonly API = '/assets/movies.json';
+
   constructor(private httpClient: HttpClient) { }
 
-  list(): Movie[] {
-    return [
-      { _id: '1', title: 'A Freira', genre: 'Terror' }
-    ];
+  list() {
+    return this.httpClient.get<Movie[]>(this.API)
+      .pipe(
+        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
+        tap(movies => console.log(movies))
+      );
   }
 }
