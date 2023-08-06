@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, tap } from 'rxjs';
+import { first, tap } from 'rxjs';
 
 import { Movie } from '../model/movie';
 
@@ -9,7 +9,7 @@ import { Movie } from '../model/movie';
 })
 export class MoviesService {
 
-  private readonly API = '/assets/movies.json';
+  private readonly API = 'api/movies';
 
   constructor(private httpClient: HttpClient) { }
 
