@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 import { Movie } from '../model/movie';
 import { MoviesService } from './../services/movies.service';
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-movies',
@@ -15,12 +16,14 @@ export class MoviesComponent implements OnInit {
 
   movies$: Observable<Movie[]>;
   //movies: Movie[] = [];
-  displayedColumns = ['title', 'genre'];
+  displayedColumns = ['title', 'genre', 'actions'];
   //moviesService: MoviesService;
 
   constructor(
     private moviesService: MoviesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.movies$ = this.moviesService.list()
       .pipe(
@@ -41,4 +44,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdd() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
 }

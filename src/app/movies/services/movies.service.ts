@@ -20,4 +20,8 @@ export class MoviesService {
         tap(movies => console.log(movies))
       );
   }
+
+  save(movie: Movie) {
+    return this.httpClient.post<Movie>(this.API, movie);
+  }
 }

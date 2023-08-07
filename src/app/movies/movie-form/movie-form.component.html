@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar>Novo Filme</mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Gênero</mat-label>
+        <mat-select formControlName="genre">
+          <mat-option value="Ação">Ação</mat-option>
+          <mat-option value="Terror">Terror</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      style="background: rgb(2, 163, 2)"
+      (click)="onSubmit()"
+    >
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
