@@ -21,7 +21,7 @@ export class MoviesService {
       );
   }
 
-  save(movie: Movie) {
+  save(movie: Partial<Movie>) {
     return this.httpClient.post<Movie>(this.API, movie);
   }
 }

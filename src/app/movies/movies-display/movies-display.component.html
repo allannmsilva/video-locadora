@@ -1,0 +1,42 @@
+<mat-table [dataSource]="movies">
+  <!-- Position Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.title }}</mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="genre">
+    <mat-header-cell *matHeaderCellDef>Gênero</mat-header-cell>
+    <mat-cell *matCellDef="let movie"
+      >{{ movie.genre }}
+      <mat-icon aria-hidden="false" aria-label="Gênero do Filme">{{
+        movie.genre | genre
+      }}</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button
+        mat-mini-fab
+        color="accent"
+        aria-label="Adicionar Filme"
+        (click)="onAdd()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let movie" class="action-space">
+      <button mat-icon-button aria-label="Editar Filme">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Remover Filme">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

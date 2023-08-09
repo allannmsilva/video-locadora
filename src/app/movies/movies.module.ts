@@ -5,11 +5,13 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies/movies.component';
+import { MoviesDisplayComponent } from './movies-display/movies-display.component';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent
+    MoviesComponent,
+    MoviesDisplayComponent
   ],
   imports: [
     CommonModule,

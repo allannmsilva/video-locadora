@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,16 +32,15 @@ import { MoviesService } from './../services/movies.service';
 })
 export class MovieFormComponent implements OnInit {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    title: [''],
+    genre: ['']
+  });
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: NonNullableFormBuilder,
     private service: MoviesService,
     private snackBar: MatSnackBar,
     private location: Location) {
-    this.form = this.formBuilder.group({
-      title: [null],
-      genre: [null]
-    });
   }
 
   ngOnInit(): void {
