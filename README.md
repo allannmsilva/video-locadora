@@ -39,7 +39,7 @@ Este projeto é um CRUD (Create, Read, Update, Delete) construído em Angular Ma
    ```
 9. Acesse a aplicação no navegador:
     ```cmd
-   [npm run start](http://localhost:4200)
+   http://localhost:4200
    ```
 
 ## Como Contribuir
