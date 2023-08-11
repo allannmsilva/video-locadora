@@ -1,27 +1,38 @@
-# CrudAngular
+# Locadora de Filmes - CRUD em Angular Material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+Este projeto é um CRUD (Create, Read, Update, Delete) construído em Angular Material para gerenciar filmes de uma locadora. Ele permite a criação, listagem, atualização e remoção de filmes, cada um com título e categoria.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Listagem de filmes cadastrados.
+- Cadastro de novos filmes com título e categoria.
+- Atualização das informações de filmes.
+- Remoção de filmes.
+- Busca de filmes por título ou categoria.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 16.1.6
+- Angular Material
+- TypeScript
+- HTML
+- SCSS
+- Git (controle de versão)
 
-## Build
+## Configuração do Ambiente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone este repositório: `git clone https://github.com/allannmsilva/video-locadora.git`
+2. Navegue até o diretório do projeto: `cd crud-angular`
+3. Instale as dependências: `npm install`
+4. Inicie o servidor de desenvolvimento: `npm run start`
+5. Acesse a aplicação no navegador: `http://localhost:4200`
 
-## Running unit tests
+## Como Contribuir
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Contribuições são bem-vindas! Siga estas etapas:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Faça um fork do repositório.
+2. Crie um branch para sua feature: `git checkout -b minha-feature`
+3. Faça commit das suas alterações: `git commit -m 'Adicionando nova feature'`
+4. Envie o branch para o seu fork: `git push origin minha-feature`
+5. Abra um Pull Request no repositório original.
