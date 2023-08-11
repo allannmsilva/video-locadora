@@ -21,6 +21,23 @@ Este projeto é um CRUD (Create, Read, Update, Delete) construído em Angular Ma
 
 ## Configuração do Ambiente
 
+Clique no botão abaixo para copiar o link:
+
+<button id="copyButton">Copiar Link</button>
+
+<script>
+  document.getElementById('copyButton').addEventListener('click', function() {
+    var link = 'https://github.com/allannmsilva/video-locadora.git'; // Substitua com o link real
+    var tempInput = document.createElement('input');
+    tempInput.value = link;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Link copiado para a área de transferência!');
+  });
+</script>
+
 1. Clone este repositório: `git clone https://github.com/allannmsilva/video-locadora.git`
 2. Navegue até o diretório do projeto: `cd crud-angular`
 3. Instale as dependências: `npm install`
