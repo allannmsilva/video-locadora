@@ -47,7 +47,16 @@ Este projeto é um CRUD (Create, Read, Update, Delete) construído em Angular Ma
 Contribuições são bem-vindas! Siga estas etapas:
 
 1. Faça um fork do repositório.
-2. Crie um branch para sua feature: `git checkout -b minha-feature`
-3. Faça commit das suas alterações: `git commit -m 'Adicionando nova feature'`
-4. Envie o branch para o seu fork: `git push origin minha-feature`
-5. Abra um Pull Request no repositório original.
+2. Crie um branch para sua feature:
+   ```cmd
+   git checkout -b minha-feature
+   ```
+4. Faça commit das suas alterações:
+   ```cmd
+   git commit -m 'Adicionando nova feature'
+   ```
+6. Envie o branch para o seu fork:
+   ```cmd
+   git push origin minha-feature
+   ```
+8. Abra um Pull Request no repositório original.
