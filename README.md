@@ -21,11 +21,26 @@ Este projeto é um CRUD (Create, Read, Update, Delete) construído em Angular Ma
 
 ## Configuração do Ambiente
 
-1. Clone este repositório: `git clone https://github.com/allannmsilva/video-locadora.git`
-2. Navegue até o diretório do projeto: `cd crud-angular`
-3. Instale as dependências: `npm install`
-4. Inicie o servidor de desenvolvimento: `npm run start`
-5. Acesse a aplicação no navegador: `http://localhost:4200`
+1. Clone este repositório:
+   ```cmd
+   git clone https://github.com/allannmsilva/video-locadora.git
+   ```
+3. Navegue até o diretório do projeto:
+   ```cmd
+   cd crud-angular
+   ```
+5. Instale as dependências:
+   ```cmd
+   npm install
+   ```
+7. Inicie o servidor de desenvolvimento:
+   ```cmd
+   npm run start
+   ```
+9. Acesse a aplicação no navegador:
+    ```cmd
+   [npm run start](http://localhost:4200)
+   ```
 
 ## Como Contribuir
 
