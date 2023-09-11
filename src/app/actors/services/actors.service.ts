@@ -2,26 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first, tap } from 'rxjs';
 
-import { Movie } from '../model/movie';
+import { Actor } from '../model/actor';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class ActorsService {
 
-  private readonly API = 'api/movies';
+  private readonly API = 'api/actors';
 
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Movie[]>(this.API)
+    return this.httpClient.get<Actor[]>(this.API)
       .pipe(
         first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(movies => console.log(movies))
+        tap(actors => console.log(actors))
       );
   }
 
-  save(movie: Partial<Movie>) {
-    return this.httpClient.post<Movie>(this.API, movie);
+  save(actor: Partial<Actor>) {
+    return this.httpClient.post<Actor>(this.API, actor);
   }
 }

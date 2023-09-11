@@ -10,13 +10,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { MoviesService } from './../services/movies.service';
+import { ActorsService } from '../services/actors.service';
 
 
 @Component({
-  selector: 'app-movie-form',
-  templateUrl: './movie-form.component.html',
-  styleUrls: ['./movie-form.component.scss'],
+  selector: 'app-actor-form',
+  templateUrl: './actor-form.component.html',
+  styleUrls: ['./actor-form.component.scss'],
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -30,15 +30,14 @@ import { MoviesService } from './../services/movies.service';
     MatSnackBarModule
   ]
 })
-export class MovieFormComponent implements OnInit {
+export class ActorFormComponent implements OnInit {
 
   form = this.formBuilder.group({
-    title: [''],
-    genre: ['']
+    name: ['']
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
-    private service: MoviesService,
+    private service: ActorsService,
     private snackBar: MatSnackBar,
     private location: Location) {
   }

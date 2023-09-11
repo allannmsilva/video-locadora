@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-content>
-    <mat-toolbar> Filmes </mat-toolbar>
+    <mat-toolbar> Actors </mat-toolbar>
 
     <div class="column-align mat-elevation-z8">
-      <app-movies-display
-        *ngIf="movies$ | async as movies; else loading"
-        [movies]="movies"
-      ></app-movies-display>
+      <app-actors-display
+        *ngIf="actors$ | async as actors; else loading"
+        [actors]="actors"
+      ></app-actors-display>
 
       <ng-template #loading>
         <div color="accent" diameter="20" class="loading-spinner">

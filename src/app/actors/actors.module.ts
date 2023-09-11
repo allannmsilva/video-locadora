@@ -3,21 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { MoviesRoutingModule } from './movies-routing.module';
-import { MoviesComponent } from './movies/movies.component';
-import { MoviesDisplayComponent } from './movies-display/movies-display.component';
+import { ActorsRoutingModule } from './actors-routing.module';
+import { ActorsComponent } from './actors/actors.component';
+import { ActorsDisplayComponent } from './actors-display/actors-display.component';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent,
-    MoviesDisplayComponent
+    ActorsComponent,
+    ActorsDisplayComponent
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule,
+    ActorsRoutingModule,
     AppMaterialModule,
     SharedModule
   ]
 })
-export class MoviesModule { }
+export class ActorsModule { }

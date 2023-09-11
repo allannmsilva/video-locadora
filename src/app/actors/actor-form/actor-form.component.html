@@ -1,21 +1,21 @@
 <mat-card>
   <mat-card-header>
-    <mat-toolbar>Novo Filme</mat-toolbar>
+    <mat-toolbar>Create Actor</mat-toolbar>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form" class="min-width">
       <mat-form-field class="full-width">
-        <mat-label>Título</mat-label>
-        <input matInput formControlName="title" />
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
       </mat-form-field>
 
-      <mat-form-field class="full-width">
+      <!-- <mat-form-field class="full-width">
         <mat-label>Gênero</mat-label>
         <mat-select formControlName="genre">
           <mat-option value="Ação">Ação</mat-option>
           <mat-option value="Terror">Terror</mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
     </form>
   </mat-card-content>
 
@@ -27,6 +27,6 @@
     >
       Salvar
     </button>
-    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button (click)="onCancel()">Abort</button>
   </mat-card-actions>
 </mat-card>
