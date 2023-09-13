@@ -47,4 +47,8 @@ export class ActorsComponent implements OnInit {
   onAdd() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
+
+  onEdit(_id: string) {
+    this.router.navigate(['edit', _id], { relativeTo: this.route });
+  }
 }

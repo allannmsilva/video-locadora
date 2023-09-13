@@ -21,7 +21,23 @@ export class ActorsService {
       );
   }
 
+  findById(_id: string) {
+    return this.httpClient.get<Actor>(`${this.API}/${_id}`);
+  }
+
   save(actor: Partial<Actor>) {
-    return this.httpClient.post<Actor>(this.API, actor);
+    if (actor._id) {
+      return this.update(actor);
+    }
+
+    return this.create(actor);
+  }
+
+  private create(actor: Partial<Actor>) {
+    return this.httpClient.post<Actor>(this.API, actor).pipe(first());
+  }
+
+  private update(actor: Partial<Actor>) {
+    return this.httpClient.put<Actor>(`${this.API}/${actor._id}`, actor).pipe(first());
   }
 }

@@ -1,3 +1,4 @@
+import { Actor } from './../../model/actor';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { ActivatedRoute } from '@angular/router';
 import { ActorsService } from '../../services/actors.service';
 
 
@@ -33,20 +35,24 @@ import { ActorsService } from '../../services/actors.service';
 export class ActorFormComponent implements OnInit {
 
   form = this.formBuilder.group({
-    name: ['']
+    _id: [''],
+    name: [''],
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
     private service: ActorsService,
     private snackBar: MatSnackBar,
-    private location: Location) {
+    private location: Location,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    const actor: Actor = this.route.snapshot.data['actor'];
+    this.form.setValue({ _id: actor._id, name: actor.name, });
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe(result => this.onSucess(), error => { this.onError() });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => { this.onError() } });
   }
 
   onCancel() {
@@ -62,7 +68,7 @@ export class ActorFormComponent implements OnInit {
   }
 
   private onSucess() {
-    this.openSnackbar('Actor created successfuly!');
+    this.openSnackbar('Actor saved successfuly!');
     this.onCancel();
   }
 
