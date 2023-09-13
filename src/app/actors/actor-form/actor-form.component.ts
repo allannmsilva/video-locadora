@@ -58,11 +58,11 @@ export class ActorFormComponent implements OnInit {
   }
 
   private onError() {
-    this.openSnackbar('Erro ao salvar curso!');
+    this.openSnackbar('An error ocurred while creating a new actor!');
   }
 
   private onSucess() {
-    this.openSnackbar('Curso salvo com sucesso!');
+    this.openSnackbar('Actor created successfuly!');
     this.onCancel();
   }
 
