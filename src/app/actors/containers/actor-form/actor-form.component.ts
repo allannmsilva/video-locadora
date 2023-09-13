@@ -10,7 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { ActorsService } from '../services/actors.service';
+import { ActorsService } from '../../services/actors.service';
 
 
 @Component({

@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ActorsRoutingModule } from './actors-routing.module';
-import { ActorsComponent } from './actors/actors.component';
-import { ActorsDisplayComponent } from './actors-display/actors-display.component';
+import { ActorsComponent } from './containers/actors/actors.component';
+import { ActorsDisplayComponent } from './components/actors-display/actors-display.component';
 
 
 @NgModule({

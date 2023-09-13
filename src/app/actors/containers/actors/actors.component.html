@@ -6,7 +6,8 @@
       <app-actors-display
         *ngIf="actors$ | async as actors; else loading"
         [actors]="actors"
-      ></app-actors-display>
+        (add)="onAdd()"
+    ></app-actors-display>
 
       <ng-template #loading>
         <div color="accent" diameter="20" class="loading-spinner">

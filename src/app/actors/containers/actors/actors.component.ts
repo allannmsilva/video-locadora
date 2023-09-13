@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
-import { Actor } from '../model/actor';
-import { ActorsService } from '../services/actors.service';
+import { Actor } from '../../model/actor';
+import { ActorsService } from '../../services/actors.service';
 
 @Component({
   selector: 'app-actors',
@@ -15,7 +15,7 @@ import { ActorsService } from '../services/actors.service';
 export class ActorsComponent implements OnInit {
 
   actors$: Observable<Actor[]>;
-  //actors: Movie[] = [];
+  //actors: Actor[] = [];
   displayedColumns = ['name', 'actions'];
   //actorsService: ActorsService;
 
