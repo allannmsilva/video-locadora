@@ -52,7 +52,7 @@ export class ActorFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => { this.onError() } });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => this.onError() });
   }
 
   onCancel() {
