@@ -12,6 +12,7 @@ export class ActorsDisplayComponent implements OnInit {
   @Input() actors: Actor[] = [];
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
+  @Output() delete = new EventEmitter(false);
 
   readonly displayedColumns = ['name', 'actions'];
 
@@ -27,6 +28,10 @@ export class ActorsDisplayComponent implements OnInit {
 
   onEdit(actor: Actor) {
     this.edit.emit(actor._id);
+  }
+
+  onDelete(actor: Actor){
+    this.delete.emit(actor);
   }
 
 }

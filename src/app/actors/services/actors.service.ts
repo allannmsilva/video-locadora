@@ -40,4 +40,8 @@ export class ActorsService {
   private update(actor: Partial<Actor>) {
     return this.httpClient.put<Actor>(`${this.API}/${actor._id}`, actor).pipe(first());
   }
+
+  delete(id: String) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
 }
