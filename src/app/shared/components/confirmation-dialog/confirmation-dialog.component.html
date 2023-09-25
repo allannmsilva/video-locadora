@@ -2,6 +2,10 @@
   <p>{{ data }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button color="warn" (click)="onConfirm(false)">No, I don't</button>
-  <button mat-flat-button color="accent" (click)="onConfirm(true)">Yes, I do</button>
+  <button mat-mini-fab color="warn" (click)="onConfirm(false)">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <button mat-mini-fab (click)="onConfirm(true)" id="saveButton">
+    <mat-icon>check</mat-icon>
+  </button>
 </div>

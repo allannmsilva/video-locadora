@@ -1,6 +1,15 @@
+#addActor{
+  color: white;
+}
+
 mat-table {
   overflow: auto;
   max-height: 475px;
+}
+
+mat-header-cell {
+  padding: 10px;
+  font-size: large;
 }
 
 .action-space {

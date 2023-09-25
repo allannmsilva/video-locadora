@@ -1,3 +1,18 @@
 button {
   margin-left: 15px;
 }
+
+mat-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: white;
+}
+
+#saveButton {
+  background-color: green;
+  color: white
+}

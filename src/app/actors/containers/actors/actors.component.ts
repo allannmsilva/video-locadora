@@ -68,7 +68,7 @@ export class ActorsComponent implements OnInit {
       if (result) {
         this.actorsService.delete(actor._id).subscribe({
           next: () => {
-            this.snackBar.open('Actor deleted successfully!', 'X', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
+            this.snackBar.open('Actor deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
           error: () => this.onError('An error occurred while attempting to remove the actor')
