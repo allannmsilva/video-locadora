@@ -7,6 +7,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actor } from '../../model/actor';
 import { ActorsService } from '../../services/actors.service';
+import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-actors',
@@ -59,14 +60,21 @@ export class ActorsComponent implements OnInit {
   }
 
   onDelete(actor: Actor) {
-    if(confirm('Are you sure about deleting ' + actor.name + '?')){
-      this.actorsService.delete(actor._id).subscribe({
-        next: () => {
-          this.snackBar.open('Actor deleted successfully!', 'X', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
-          this.refresh();
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Are you sure about deleting actor ' + actor.name + '?',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.actorsService.delete(actor._id).subscribe({
+          next: () => {
+            this.snackBar.open('Actor deleted successfully!', 'X', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
+            this.refresh();
+          },
+          error: () => this.onError('An error occurred while attempting to remove the actor')
         },
-        error: () => this.onError('An error occurred while attempting to remove the actor')},
-      );
-    }
+        );
+      }
+    });
   }
 }
