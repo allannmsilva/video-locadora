@@ -9,6 +9,10 @@ mat-card-actions {
   justify-content: center;
 }
 
+mat-hint {
+  color: white;
+}
+
 mat-card-actions> :first-child {
   margin-right: 25px;
 }
