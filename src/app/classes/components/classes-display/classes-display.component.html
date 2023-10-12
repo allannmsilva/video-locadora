@@ -1,0 +1,36 @@
+<mat-table [dataSource]="classes">
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let c">{{ c.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="worth">
+    <mat-header-cell *matHeaderCellDef>Worth</mat-header-cell>
+    <mat-cell *matCellDef="let c">{{ c.worth }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="devolutionDate">
+    <mat-header-cell *matHeaderCellDef>Devolution Date</mat-header-cell>
+    <mat-cell *matCellDef="let c">{{ c.devolutionDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Director" id="addDirector" (click)="onAdd()">
+        <mat-icon>person_add_alt</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let c" class="action-space">
+      <button mat-icon-button aria-label="Edit Director" (click)="onEdit(c)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Director" (click)="onDelete(c)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

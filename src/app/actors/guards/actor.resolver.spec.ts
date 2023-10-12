@@ -2,10 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { ResolveFn } from '@angular/router';
 
 import { actorResolver } from './actor.resolver';
+import { Actor } from '../model/actor';
 
 describe('actorResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
-      TestBed.runInInjectionContext(() => actorResolver(...resolverParameters));
+  const executeResolver: ResolveFn<Actor> = (...resolverParameters) =>
+    TestBed.runInInjectionContext(() => actorResolver(...resolverParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

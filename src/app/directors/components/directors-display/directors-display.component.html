@@ -1,21 +1,22 @@
-<mat-table [dataSource]="actors">
+<mat-table [dataSource]="directors">
   <!-- Position Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-    <mat-cell *matCellDef="let actor">{{ actor.name }}</mat-cell>
+    <mat-cell *matCellDef="let director">{{ director.name }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-space">
-      <button mat-mini-fab aria-label="Add Actor" id="addActor" (click)="onAdd()">
+      <button mat-mini-fab aria-label="Add Director" id="addDirector" (click)="onAdd()">
         <mat-icon>person_add_alt</mat-icon>
       </button>
     </mat-header-cell>
-    <mat-cell *matCellDef="let actor" class="action-space">
-      <button mat-icon-button aria-label="Edit Actor" (click)="onEdit(actor)">
+    <mat-cell *matCellDef="let director" class="action-space">
+      <button mat-icon-button aria-label="Edit Director" (click)="onEdit(director)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Actor" (click)="onDelete(actor)">
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Director"
+        (click)="onDelete(director)">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>

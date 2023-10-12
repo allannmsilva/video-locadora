@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary"> Directors </mat-toolbar>
+    <div class="column-align mat-elevation-z8">
+      <app-directors-display *ngIf="directors$ | async as directors; else loading" [directors]="directors"
+        (add)="onAdd()" (edit)="onEdit($event)" (delete)="onDelete($event)">
+      </app-directors-display>
+
+      <ng-template #loading>
+        <div color="accent" diameter="20" class="loading-spinner">
+          <mat-spinner></mat-spinner>
+        </div>
+      </ng-template>
+    </div>
+  </mat-card-content>
+</mat-card>

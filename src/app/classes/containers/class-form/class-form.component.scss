@@ -1,0 +1,32 @@
+mat-card {
+  display: flex;
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-card-actions {
+  justify-content: center;
+}
+
+mat-hint {
+  color: white;
+}
+
+mat-card-actions> :first-child {
+  margin-right: 25px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.min-width {
+  width: 100%;
+  min-width: 200px;
+}
+
+#saveButton {
+  background-color: green;
+  color: white;
+}
