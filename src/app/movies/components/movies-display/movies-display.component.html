@@ -1,0 +1,26 @@
+<mat-table [dataSource]="movies">
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Movie" id="addMovie" (click)="onAdd()">
+        <mat-icon>movie</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let movie" class="action-space">
+      <button mat-icon-button aria-label="Edit Movie" (click)="onEdit(movie)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Movie" (click)="onDelete(movie)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

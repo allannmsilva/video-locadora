@@ -1,0 +1,14 @@
+mat-table {
+  overflow: auto;
+  max-height: 475px;
+}
+
+mat-header-cell {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.action-space {
+  justify-content: center;
+  flex: 0 0 150px;
+}

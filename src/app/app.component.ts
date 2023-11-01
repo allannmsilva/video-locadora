@@ -28,6 +28,10 @@ export class AppComponent {
     this.router.navigate(['classes'], { relativeTo: this.route });
   }
 
+  onMovies() {
+    this.router.navigate(['movies'], { relativeTo: this.route });
+  }
+
   onMenu() {
     this.router.navigate([''], { relativeTo: this.route });
   }

@@ -19,7 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ActorsRoutingModule,
     AppMaterialModule,
     SharedModule,
-    MatSnackBarModule,
+    MatSnackBarModule
   ]
 })
 export class ActorsModule { }
