@@ -1,1 +1,76 @@
-<p>movie-form works!</p>
+<mat-card>
+  <mat-card-header color="primary">
+    <mat-toolbar color="primary">Movie Details</mat-toolbar>
+  </mat-card-header>
+
+  <form [formGroup]="form" class="min-width">
+    <mat-card-content>
+      <mat-form-field class="full-width" color="accent">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" minlength="2" maxlength="50" #name>
+        <mat-error *ngIf="form.get('name')?.invalid">{{ onFieldError('name') }}</mat-error>
+        <mat-hint align="end">{{name.value.length || 0}} / 50</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" color="accent">
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year" maxlength="4" #year>
+        <mat-error *ngIf="form.get('year')?.invalid">{{ onFieldError('year') }}</mat-error>
+        <mat-hint align="end">{{year.value.length || 0}} / 4</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" color="accent">
+        <mat-label>Synopsis</mat-label>
+        <textarea matInput required formControlName="synopsis"></textarea>
+        <mat-error *ngIf="form.get('synopsis')?.invalid">{{ onFieldError('synopsis') }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="cbb-width" color="accent">
+        <mat-label>Class</mat-label>
+        <mat-select formControlName="c" required>
+          <mat-option *ngFor="let c of classes" [value]="c">
+            {{ c.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="cbb-width" color="accent">
+        <mat-label>Director</mat-label>
+        <mat-select formControlName="director" required>
+          <mat-option *ngFor="let director of directors" [value]="director">
+            {{director.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="cbb-width" color="accent">
+        <mat-label>Cast</mat-label>
+        <mat-select multiple formControlName="cast" required>
+          <mat-option *ngFor="let actor of cast" [value]="actor">
+            {{ actor.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="cbb-width" color="accent">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" required>
+          <mat-option value="Horror">Horror</mat-option>
+          <mat-option value="Thriller">Thriller</mat-option>
+          <mat-option value="Comedy">Comedy</mat-option>
+          <mat-option value="Romance">Romance</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-fab color="warn" (click)="onCancel()">
+        <mat-icon>clear</mat-icon>
+      </button>
+      <button mat-fab (click)="onSubmit()" id="saveButton">
+        <mat-icon>save</mat-icon>
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

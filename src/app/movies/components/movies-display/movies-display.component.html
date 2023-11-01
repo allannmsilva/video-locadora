@@ -5,6 +5,31 @@
     <mat-cell *matCellDef="let movie">{{ movie.name }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef>Year</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.year }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="synopsis">
+    <mat-header-cell *matHeaderCellDef>Synopsis</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.synopsis }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.category }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="director">
+    <mat-header-cell *matHeaderCellDef>Director</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.director.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="c">
+    <mat-header-cell *matHeaderCellDef>Class</mat-header-cell>
+    <mat-cell *matCellDef="let movie">{{ movie.c.name }}</mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-space">
       <button mat-mini-fab aria-label="Add Movie" id="addMovie" (click)="onAdd()">

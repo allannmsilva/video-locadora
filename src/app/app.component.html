@@ -5,19 +5,22 @@
 <mat-toolbar color="primary">
   <span>Coffee&Code Rental Films</span>
   <button mat-icon-button (click)="onMenu()">
-    <mat-icon>arrow_circle_left</mat-icon>
+    <mat-icon>menu</mat-icon>
   </button>
   <button mat-icon-button (click)="onActor()">
-    <mat-icon>person</mat-icon>
+    <mat-icon>groups</mat-icon>
   </button>
   <button mat-icon-button (click)="onDirector()">
-    <mat-icon>groups</mat-icon>
+    <mat-icon>person</mat-icon>
   </button>
   <button mat-icon-button (click)="onClasses()">
     <mat-icon>class</mat-icon>
   </button>
   <button mat-icon-button (click)="onMovies()">
     <mat-icon>movie</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onItems()">
+    <mat-icon>theaters</mat-icon>
   </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

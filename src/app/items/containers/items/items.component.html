@@ -1,15 +1,15 @@
 <mat-card>
   <mat-card-content>
-    <mat-toolbar color="primary"> Movies </mat-toolbar>
+    <mat-toolbar color="primary"> Items </mat-toolbar>
 
     <div class="column-align mat-elevation-z8">
-      <app-movies-display
-        *ngIf="movies$ | async as movies; else loading"
-        [movies]="movies"
+      <app-items-display
+        *ngIf="items$ | async as items; else loading"
+        [items]="items"
         (add)="onAdd()"
         (edit)="onEdit($event)"
         (delete)="onDelete($event)"
-    ></app-movies-display>
+    ></app-items-display>
 
       <ng-template #loading>
         <div color="accent" diameter="20" class="loading-spinner">

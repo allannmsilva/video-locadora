@@ -5,38 +5,38 @@ import { Observable, catchError, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Item } from '../../model/item';
+import { ItemsService } from '../../services/items.service';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
-import { Movie } from '../../model/movie';
-import { MoviesService } from '../../services/movies.service';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  selector: 'app-items',
+  templateUrl: './items.component.html',
+  styleUrls: ['./items.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class ItemsComponent implements OnInit {
 
-  movies$: Observable<Movie[]> | null = null;
-  //movies: Movie[] = [];
-  displayedColumns = ['name', 'year', 'synopsis', 'category', 'director', 'class', 'cast', 'actions'];
-  //moviesService: MoviesService;
+  items$: Observable<Item[]> | null = null;
+  //items: Item[] = [];
+  displayedColumns = ['title', 'serialNumber', 'itemType', 'acquisitionDate', 'actions'];
+  //itemsService: ItemsService;
 
   constructor(
-    private moviesService: MoviesService,
+    private itemsService: ItemsService,
     public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
   ) {
     this.refresh();
-    //this.movies = this.moviesService.list().subscribe(movies => this.movies = movies);
+    //this.items = this.itemsService.list().subscribe(items => this.items = items);
   }
 
   refresh() {
-    this.movies$ = this.moviesService.list()
+    this.items$ = this.itemsService.list()
       .pipe(
         catchError(error => {
-          this.onError('Error displaying movies!');
+          this.onError('Error displaying items!');
           return of([])
         })
       );
@@ -59,19 +59,19 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['edit', _id], { relativeTo: this.route });
   }
 
-  onDelete(movie: Movie) {
+  onDelete(item: Item) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: 'Are you sure about deleting movie ' + movie.name + '?',
+      data: 'Are you sure about deleting item ' + item.title + '?',
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.moviesService.delete(movie._id).subscribe({
+        this.itemsService.delete(item._id).subscribe({
           next: () => {
-            this.snackBar.open('Movie deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
+            this.snackBar.open('Item deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the movie')
+          error: () => this.onError('An error occurred while attempting to remove the item')
         },
         );
       }

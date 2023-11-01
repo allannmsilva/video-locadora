@@ -32,6 +32,10 @@ export class AppComponent {
     this.router.navigate(['movies'], { relativeTo: this.route });
   }
 
+  onItems() {
+    this.router.navigate(['items'], { relativeTo: this.route });
+  }
+
   onMenu() {
     this.router.navigate([''], { relativeTo: this.route });
   }

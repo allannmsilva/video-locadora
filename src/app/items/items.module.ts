@@ -4,23 +4,23 @@ import { NgModule } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { MoviesDisplayComponent } from './components/movies-display/movies-display.component';
-import { MoviesComponent } from './containers/movies/movies.component';
-import { MoviesRoutingModule } from './movies-routing.module';
-import { MovieFormComponent } from './containers/movie-form/movie-form.component';
+import { ItemsDisplayComponent } from './components/items-display/items-display.component';
+import { ItemFormComponent } from './containers/item-form/item-form.component';
+import { ItemsComponent } from './containers/items/items.component';
+import { ItemsRoutingModule } from './items-routing.module';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent,
-    MoviesDisplayComponent,
+    ItemsComponent,
+    ItemsDisplayComponent
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule,
+    ItemsRoutingModule,
     AppMaterialModule,
     SharedModule,
     MatSnackBarModule
   ]
 })
-export class MoviesModule { }
+export class ItemsModule { }

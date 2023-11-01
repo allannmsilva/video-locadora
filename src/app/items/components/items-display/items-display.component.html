@@ -1,0 +1,41 @@
+<mat-table [dataSource]="items">
+  <!-- Position Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.title }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="serialNumber">
+    <mat-header-cell *matHeaderCellDef>Serial Number</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.serialNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="itemType">
+    <mat-header-cell *matHeaderCellDef>Item Type</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.itemType }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="acquisitionDate">
+    <mat-header-cell *matHeaderCellDef>Acquisition Date</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.acquisitionDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Title" id="addTitle" (click)="onAdd()">
+        <mat-icon>theaters</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let item" class="action-space">
+      <button mat-icon-button aria-label="Edit Title" (click)="onEdit(item)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Title" (click)="onDelete(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

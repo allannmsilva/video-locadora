@@ -9,6 +9,6 @@ export interface Movie {
   synopsis: string;
   category: string;
   director: Director;
-  class: Class;
-  actors: Actor[];
+  c: Class;
+  cast: Actor[];
 }
