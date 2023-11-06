@@ -71,7 +71,7 @@ export class MoviesComponent implements OnInit {
             this.snackBar.open('Movie deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the movie')
+          error: () => this.onError('Movie is present in an Item!')
         },
         );
       }

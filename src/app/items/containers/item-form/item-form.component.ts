@@ -1,6 +1,6 @@
-import { Location, NgIf } from '@angular/common';
+import { Location, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,6 +15,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../../services/items.service';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Movie } from 'src/app/movies/model/movie';
+import { MoviesService } from 'src/app/movies/services/movies.service';
 
 
 @Component({
@@ -34,16 +36,16 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSnackBarModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    NgIf
+    NgIf,
+    NgFor
   ]
 })
 export class ItemFormComponent implements OnInit {
+  movies: Movie[] = [];
 
   form = this.formBuilder.group({
     _id: [''],
-    title: ['', [Validators.required,
-    Validators.minLength(2),
-    Validators.maxLength(100)]],
+    movie: [new FormControl(), [Validators.required]],
     serialNumber: ['', [Validators.required]],
     type: ['', [Validators.required]],
     acquisitionDate: ['', Validators.required]
@@ -53,12 +55,21 @@ export class ItemFormComponent implements OnInit {
     private service: ItemsService,
     private snackBar: MatSnackBar,
     private location: Location,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private moviesService: MoviesService) {
+    this.moviesService.list().subscribe({
+      next: (movie: Movie[]) => {
+        this.movies.push(...movie);
+      },
+      error: _error => {
+        this.onError();
+      }
+    });
   }
 
   ngOnInit(): void {
     const item: Item = this.route.snapshot.data['item'];
-    this.form.setValue({ _id: item._id, title: item.title, serialNumber: item.serialNumber, type: item.type, acquisitionDate: item.acquisitionDate });
+    this.form.setValue({ _id: item._id, movie: item.movie, serialNumber: item.serialNumber, type: item.type, acquisitionDate: item.acquisitionDate });
   }
 
   onSubmit() {

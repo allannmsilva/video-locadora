@@ -14,7 +14,8 @@
 
       <mat-form-field class="full-width" color="accent">
         <mat-label>Year</mat-label>
-        <input matInput formControlName="year" maxlength="4" #year>
+        <input matInput formControlName="year" maxlength="4"
+          onkeypress='return event.charCode >= 48 && event.charCode <= 57' #year>
         <mat-error *ngIf="form.get('year')?.invalid">{{ onFieldError('year') }}</mat-error>
         <mat-hint align="end">{{year.value.length || 0}} / 4</mat-hint>
       </mat-form-field>

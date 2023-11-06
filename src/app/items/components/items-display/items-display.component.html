@@ -1,8 +1,8 @@
 <mat-table [dataSource]="items">
   <!-- Position Column -->
-  <ng-container matColumnDef="title">
-    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.title }}</mat-cell>
+  <ng-container matColumnDef="movie">
+    <mat-header-cell *matHeaderCellDef>Movie</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.movie.name }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="serialNumber">

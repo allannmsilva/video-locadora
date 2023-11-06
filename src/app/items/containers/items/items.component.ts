@@ -18,7 +18,7 @@ export class ItemsComponent implements OnInit {
 
   items$: Observable<Item[]> | null = null;
   //items: Item[] = [];
-  displayedColumns = ['title', 'serialNumber', 'type', 'acquisitionDate', 'actions'];
+  displayedColumns = ['movie', 'serialNumber', 'type', 'acquisitionDate', 'actions'];
   //itemsService: ItemsService;
 
   constructor(
@@ -61,7 +61,7 @@ export class ItemsComponent implements OnInit {
 
   onDelete(item: Item) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: 'Are you sure about deleting item ' + item.title + '?',
+      data: 'Are you sure about deleting item ' + item.serialNumber + '?',
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
