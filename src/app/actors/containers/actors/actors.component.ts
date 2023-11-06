@@ -71,7 +71,7 @@ export class ActorsComponent implements OnInit {
             this.snackBar.open('Actor deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the actor')
+          error: () => this.onError('Actor is in the cast of a movie!')
         },
         );
       }

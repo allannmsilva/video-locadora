@@ -71,7 +71,7 @@ export class DirectorsComponent implements OnInit {
             this.snackBar.open('Director deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the director')
+          error: () => this.onError('Director is acting in a movie!')
         },
         );
       }
