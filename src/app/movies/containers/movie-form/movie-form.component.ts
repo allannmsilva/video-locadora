@@ -45,6 +45,7 @@ export class MovieFormComponent implements OnInit {
   directors: Director[] = [];
   cast: Actor[] = [];
   classes: Class[] = [];
+  movie: Movie;
 
   form = this.formBuilder.group({
     _id: [''],
@@ -69,6 +70,12 @@ export class MovieFormComponent implements OnInit {
     this.directorsService.list().subscribe({
       next: (director: Director[]) => {
         this.directors.push(...director);
+        let value: Director = {} as Director;
+        const add = this.directors.find(director =>
+          director._id === this.movie.director._id
+        );
+        if (add) value = add;
+        this.form.controls['director'].setValue(value);
       },
       error: _error => {
         this.onError();
@@ -77,6 +84,12 @@ export class MovieFormComponent implements OnInit {
     this.classesService.list().subscribe({
       next: (c: Class[]) => {
         this.classes.push(...c);
+        let value: Class = {} as Class;
+        const add = this.classes.find(c =>
+          c._id === this.movie.c._id
+        );
+        if (add) value = add;
+        this.form.controls['c'].setValue(value);
       },
       error: _error => {
         this.onError();
@@ -84,17 +97,23 @@ export class MovieFormComponent implements OnInit {
     });
     this.actorsService.list().subscribe({
       next: (cast: Actor[]) => {
+        const values: Actor[] = [];
         this.cast.push(...cast);
+        this.movie.cast.forEach(actor => {
+          const add = this.cast.find(actor2 => actor2._id === actor._id);
+          if (add) values.push(add)
+        })
+        this.form.controls['cast'].setValue(values);
       },
       error: _error => {
         this.onError();
       }
     });
+    this.movie = this.route.snapshot.data['movie'];
   }
 
   ngOnInit(): void {
-    const movie: Movie = this.route.snapshot.data['movie'];
-    this.form.setValue({ _id: movie._id, name: movie.name, year: movie.year, synopsis: movie.synopsis, category: movie.category, director: movie.director, c: movie.c, cast: movie.cast });
+    this.form.setValue({ _id: this.movie._id, name: this.movie.name, year: this.movie.year, synopsis: this.movie.synopsis, category: this.movie.category, director: this.movie.director, c: this.movie.c, cast: this.movie.cast });
   }
 
   onSubmit() {

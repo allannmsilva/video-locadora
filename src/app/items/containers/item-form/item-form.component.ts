@@ -42,6 +42,7 @@ import { MoviesService } from 'src/app/movies/services/movies.service';
 })
 export class ItemFormComponent implements OnInit {
   movies: Movie[] = [];
+  item: Item;
 
   form = this.formBuilder.group({
     _id: [''],
@@ -60,16 +61,22 @@ export class ItemFormComponent implements OnInit {
     this.moviesService.list().subscribe({
       next: (movie: Movie[]) => {
         this.movies.push(...movie);
+        let value: Movie = {} as Movie;
+        const add = this.movies.find(movie =>
+          movie._id === this.item.movie._id
+        );
+        if (add) value = add;
+        this.form.controls['movie'].setValue(value);
       },
       error: _error => {
         this.onError();
       }
     });
+    this.item = this.route.snapshot.data['item'];
   }
 
   ngOnInit(): void {
-    const item: Item = this.route.snapshot.data['item'];
-    this.form.setValue({ _id: item._id, movie: item.movie, serialNumber: item.serialNumber, type: item.type, acquisitionDate: item.acquisitionDate });
+    this.form.setValue({ _id: this.item._id, movie: this.item.movie, serialNumber: this.item.serialNumber, type: this.item.type, acquisitionDate: this.item.acquisitionDate });
   }
 
   onSubmit() {

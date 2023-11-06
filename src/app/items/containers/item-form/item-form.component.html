@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-toolbar color="primary">Class Details</mat-toolbar>
+    <mat-toolbar color="primary">Item Details</mat-toolbar>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
@@ -29,9 +29,10 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="full-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Acquisition Date </mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="acquisitionDate" #acquisitionDate maxlength="10" />
+        <input matInput [matDatepicker]="picker" formControlName="acquisitionDate" #acquisitionDate maxlength="10"
+          readonly />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>

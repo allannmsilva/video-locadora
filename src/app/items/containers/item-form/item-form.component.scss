@@ -26,6 +26,12 @@ mat-card-actions> :first-child {
   min-width: 200px;
 }
 
+.cbb-width {
+  width: 25%;
+  text-align: left;
+  display: flex;
+}
+
 #saveButton {
   background-color: green;
   color: white;
