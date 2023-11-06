@@ -10,33 +10,28 @@ export class AppComponent {
   title = 'crud-angular';
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute
+    private _router: Router,
+    private _route: ActivatedRoute
   ) {
-
   }
 
   onActor() {
-    this.router.navigate(['actors'], { relativeTo: this.route });
+    this._router.navigate(['actors'], { relativeTo: this._route });
   }
 
   onDirector() {
-    this.router.navigate(['directors'], { relativeTo: this.route });
+    this._router.navigate(['directors'], { relativeTo: this._route });
   }
 
   onClasses() {
-    this.router.navigate(['classes'], { relativeTo: this.route });
+    this._router.navigate(['classes'], { relativeTo: this._route });
   }
 
   onMovies() {
-    this.router.navigate(['movies'], { relativeTo: this.route });
+    this._router.navigate(['movies'], { relativeTo: this._route });
   }
 
   onItems() {
-    this.router.navigate(['items'], { relativeTo: this.route });
-  }
-
-  onMenu() {
-    this.router.navigate([''], { relativeTo: this.route });
+    this._router.navigate(['items'], { relativeTo: this._route });
   }
 }

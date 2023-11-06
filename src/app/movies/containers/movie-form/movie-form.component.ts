@@ -50,7 +50,7 @@ export class MovieFormComponent implements OnInit {
     _id: [''],
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-    synopsis: ['', [Validators.required]],
+    synopsis: ['', [Validators.required, Validators.maxLength(255)]],
     category: ['', [Validators.required]],
     director: [new FormControl(), [Validators.required]],
     c: [new FormControl(), [Validators.required]],

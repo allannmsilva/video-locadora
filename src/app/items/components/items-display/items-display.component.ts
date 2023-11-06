@@ -14,7 +14,7 @@ export class ItemsDisplayComponent implements OnInit {
   @Output() edit = new EventEmitter(false);
   @Output() delete = new EventEmitter(false);
 
-  readonly displayedColumns = ['title', 'serialNumber', 'itemType', 'acquisitionDate', 'actions'];
+  readonly displayedColumns = ['title', 'serialNumber', 'type', 'acquisitionDate', 'actions'];
 
   constructor() {
   }

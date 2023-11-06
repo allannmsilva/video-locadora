@@ -15,5 +15,5 @@ export const itemResolver: ResolveFn<Item> =
       return itemsService.findById(route.params['_id']);
     }
 
-    return of({ _id: '', title: '', serialNumber: '', itemType: '', acquisitionDate: '' });
+    return of({ _id: '', title: '', serialNumber: '', type: '', acquisitionDate: '' });
   };

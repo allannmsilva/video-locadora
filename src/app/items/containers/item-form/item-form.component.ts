@@ -45,7 +45,7 @@ export class ItemFormComponent implements OnInit {
     Validators.minLength(2),
     Validators.maxLength(100)]],
     serialNumber: ['', [Validators.required]],
-    itemType: ['', [Validators.required]],
+    type: ['', [Validators.required]],
     acquisitionDate: ['', Validators.required]
   });
 
@@ -58,7 +58,7 @@ export class ItemFormComponent implements OnInit {
 
   ngOnInit(): void {
     const item: Item = this.route.snapshot.data['item'];
-    this.form.setValue({ _id: item._id, title: item.title, serialNumber: item.serialNumber, itemType: item.itemType, acquisitionDate: item.acquisitionDate });
+    this.form.setValue({ _id: item._id, title: item.title, serialNumber: item.serialNumber, type: item.type, acquisitionDate: item.acquisitionDate });
   }
 
   onSubmit() {

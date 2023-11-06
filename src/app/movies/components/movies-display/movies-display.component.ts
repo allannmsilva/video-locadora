@@ -12,7 +12,7 @@ export class MoviesDisplayComponent {
   @Output() edit = new EventEmitter(false);
   @Output() delete = new EventEmitter(false);
 
-  readonly displayedColumns = ['name', 'year', 'synopsis', 'category', 'director', 'c', 'actions'];
+  readonly displayedColumns = ['name', 'year', 'synopsis', 'category', 'director', 'c', 'cast', 'actions'];
 
   constructor() {
   }

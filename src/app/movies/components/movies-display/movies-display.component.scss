@@ -8,6 +8,11 @@ mat-header-cell {
   font-weight: bold;
 }
 
+mat-cell {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
 .action-space {
   justify-content: center;
   flex: 0 0 150px;

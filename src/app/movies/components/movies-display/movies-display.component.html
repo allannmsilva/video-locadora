@@ -30,6 +30,16 @@
     <mat-cell *matCellDef="let movie">{{ movie.c.name }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="cast">
+    <mat-header-cell *matHeaderCellDef>Cast</mat-header-cell>
+    <mat-cell *matCellDef="let movie">
+      <span *ngFor="let actor of movie.cast; let last = last;">
+        <span>{{ actor.name }}</span>
+        <span *ngIf="!last">,&nbsp;</span>
+      </span>
+    </mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-space">
       <button mat-mini-fab aria-label="Add Movie" id="addMovie" (click)="onAdd()">

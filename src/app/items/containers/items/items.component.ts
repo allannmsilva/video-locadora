@@ -18,7 +18,7 @@ export class ItemsComponent implements OnInit {
 
   items$: Observable<Item[]> | null = null;
   //items: Item[] = [];
-  displayedColumns = ['title', 'serialNumber', 'itemType', 'acquisitionDate', 'actions'];
+  displayedColumns = ['title', 'serialNumber', 'type', 'acquisitionDate', 'actions'];
   //itemsService: ItemsService;
 
   constructor(
