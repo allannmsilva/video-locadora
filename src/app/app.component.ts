@@ -15,11 +15,11 @@ export class AppComponent {
   ) {
   }
 
-  onActor() {
+  onActors() {
     this._router.navigate(['actors'], { relativeTo: this._route });
   }
 
-  onDirector() {
+  onDirectors() {
     this._router.navigate(['directors'], { relativeTo: this._route });
   }
 

@@ -47,7 +47,7 @@ export class ItemFormComponent implements OnInit {
   form = this.formBuilder.group({
     _id: [''],
     movie: [new FormControl(), [Validators.required]],
-    serialNumber: ['', [Validators.required]],
+    serialNumber: ['', [Validators.minLength(5), Validators.maxLength(5), Validators.required]],
     type: ['', [Validators.required]],
     acquisitionDate: ['', Validators.required]
   });

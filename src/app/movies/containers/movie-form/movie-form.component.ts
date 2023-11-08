@@ -50,7 +50,7 @@ export class MovieFormComponent implements OnInit {
   form = this.formBuilder.group({
     _id: [''],
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-    year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+    year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4), Validators.min(1895), Validators.max(new Date().getFullYear())]],
     synopsis: ['', [Validators.required, Validators.maxLength(255)]],
     category: ['', [Validators.required]],
     director: [new FormControl(), [Validators.required]],
@@ -145,6 +145,16 @@ export class MovieFormComponent implements OnInit {
     if (field?.hasError('minlength')) {
       const requiredLength = field.errors ? field.errors['minlength']['requiredLength'] : 2;
       return `Insert at least ${requiredLength} characters for this field.`
+    }
+
+    if (field?.hasError('min')) {
+      const requiredMin = field.errors ? field.errors['min']['min'] : 2;
+      return `Movies were invented the year of ${requiredMin}!`
+    }
+
+    if (field?.hasError('max')) {
+      const requiredMax = field.errors ? field.errors['max']['max'] : 2;
+      return `Please insert a year before/in ${requiredMax}!`
     }
 
     if (field?.hasError('maxlength')) {

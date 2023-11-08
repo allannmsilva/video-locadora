@@ -3,22 +3,15 @@
 <html lang="pt-BR">
 
 <mat-toolbar color="primary">
-  <span>Coffee&Code Rental Films</span>
-  <button mat-icon-button (click)="onActor()">
-    <mat-icon>groups</mat-icon>
-  </button>
-  <button mat-icon-button (click)="onDirector()">
-    <mat-icon>person</mat-icon>
-  </button>
-  <button mat-icon-button (click)="onClasses()">
-    <mat-icon>class</mat-icon>
-  </button>
-  <button mat-icon-button (click)="onMovies()">
-    <mat-icon>movie</mat-icon>
-  </button>
-  <button mat-icon-button (click)="onItems()">
-    <mat-icon>theaters</mat-icon>
-  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu" style="text-align: end;"><mat-icon>menu</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onActors()"><mat-icon>people</mat-icon>Actors</button>
+    <button mat-menu-item (click)="onDirectors()"><mat-icon>engineering</mat-icon>Directors</button>
+    <button mat-menu-item (click)="onClasses()"><mat-icon>sell</mat-icon>Classes</button>
+    <button mat-menu-item (click)="onMovies()"><mat-icon>movie</mat-icon>Movies</button>
+    <button mat-menu-item (click)="onItems()"><mat-icon>album</mat-icon>Items</button>
+  </mat-menu>
+  <span>[C,C] Rental Films</span>
 </mat-toolbar>
 <router-outlet></router-outlet>
 
