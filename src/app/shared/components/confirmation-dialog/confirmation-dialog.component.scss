@@ -1,11 +1,11 @@
-button {
-  margin-left: 15px;
-}
-
-mat-dialog-actions {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+button {
+  margin-bottom: 5px;
 }
 
 p {

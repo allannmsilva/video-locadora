@@ -71,7 +71,7 @@ export class ClassesComponent implements OnInit {
             this.snackBar.open('Class deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the class')
+          error: () => this.onError('The class is being used in a movie!')
         },
         );
       }

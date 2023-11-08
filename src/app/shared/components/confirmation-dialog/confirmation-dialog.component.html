@@ -1,8 +1,8 @@
 <div mat-dialog-content>
   <p>{{ data }}</p>
 </div>
-<div mat-dialog-actions>
-  <button mat-mini-fab color="warn" (click)="onConfirm(false)">
+<div mat-dialog-actions class="container">
+  <button mat-mini-fab color="warn" onclick="this.blur()" (click)="onConfirm(false)">
     <mat-icon>clear</mat-icon>
   </button>
   <button mat-mini-fab (click)="onConfirm(true)" id="saveButton">

@@ -17,9 +17,10 @@
         <mat-error *ngIf="form.get('worth')?.invalid">{{onFieldError('worth')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field class="full-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Devolution Date </mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="devolutionDate" #devolutionDate maxlength="10" />
+        <input matInput [matDatepicker]="picker" formControlName="devolutionDate" #devolutionDate maxlength="10"
+          readonly />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
