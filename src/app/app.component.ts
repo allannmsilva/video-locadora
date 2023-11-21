@@ -34,4 +34,8 @@ export class AppComponent {
   onItems() {
     this._router.navigate(['items'], { relativeTo: this._route });
   }
+
+  onPartners() {
+    this._router.navigate(['partners'], { relativeTo: this._route });
+  }
 }

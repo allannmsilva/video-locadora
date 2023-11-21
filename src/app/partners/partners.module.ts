@@ -4,22 +4,22 @@ import { NgModule } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { MoviesDisplayComponent } from './components/movies-display/movies-display.component';
-import { MoviesComponent } from './containers/movies/movies.component';
-import { MoviesRoutingModule } from './movies-routing.module';
+import { PartnersDisplayComponent } from './components/partners-display/partners-display.component';
+import { PartnersComponent } from './containers/partners/partners.component';
+import { PartnersRoutingModule } from './partners-routing.module';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent,
-    MoviesDisplayComponent,
+    PartnersComponent,
+    PartnersDisplayComponent,
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule,
+    PartnersRoutingModule,
     AppMaterialModule,
     SharedModule,
     MatSnackBarModule,
   ],
 })
-export class MoviesModule { }
+export class PartnersModule { }

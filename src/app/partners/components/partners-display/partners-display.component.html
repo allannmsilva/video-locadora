@@ -1,0 +1,62 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="birthDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Birth Date</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.birthDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sex">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Sex</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.sex }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.status }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.address }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.phone }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cpf">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>CPF</mat-header-cell>
+    <mat-cell *matCellDef="let partner">{{ partner.cpf }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Partner" id="addPartner" (click)="onAdd()">
+        <mat-icon>handshake</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let partner" class="action-space">
+      <button mat-icon-button aria-label="Edit Partner" (click)="onEdit(partner)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Partner"
+        (click)="onDelete(partner)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

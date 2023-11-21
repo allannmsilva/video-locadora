@@ -4,7 +4,7 @@ import { Actor } from '../../model/actor';
 
 @Component({
   selector: 'app-actors-display',
-templateUrl: './actors-display.component.html',
+  templateUrl: './actors-display.component.html',
   styleUrls: ['./actors-display.component.scss']
 })
 export class ActorsDisplayComponent implements OnInit {
@@ -30,7 +30,7 @@ export class ActorsDisplayComponent implements OnInit {
     this.edit.emit(actor._id);
   }
 
-  onDelete(actor: Actor){
+  onDelete(actor: Actor) {
     this.delete.emit(actor);
   }
 

@@ -1,37 +1,42 @@
-<mat-table [dataSource]="movies">
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort>
   <!-- Position Column -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.name }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="year">
-    <mat-header-cell *matHeaderCellDef>Year</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.year }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="synopsis">
-    <mat-header-cell *matHeaderCellDef>Synopsis</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Synopsis</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.synopsis }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Category</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.category }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="director">
-    <mat-header-cell *matHeaderCellDef>Director</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Director</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.director.name }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="c">
-    <mat-header-cell *matHeaderCellDef>Class</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Class</mat-header-cell>
     <mat-cell *matCellDef="let movie">{{ movie.c.name }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="cast">
-    <mat-header-cell *matHeaderCellDef>Cast</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Cast</mat-header-cell>
     <mat-cell *matCellDef="let movie">
       <span *ngFor="let actor of movie.cast; let last = last;">
         <span>{{ actor.name }}</span>
