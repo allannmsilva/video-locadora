@@ -38,4 +38,8 @@ export class AppComponent {
   onPartners() {
     this._router.navigate(['partners'], { relativeTo: this._route });
   }
+
+  onDependents() {
+    this._router.navigate(['dependents'], { relativeTo: this._route });
+  }
 }

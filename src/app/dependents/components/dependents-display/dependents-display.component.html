@@ -1,0 +1,52 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let dependent">{{ dependent.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="birthDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Birth Date</mat-header-cell>
+    <mat-cell *matCellDef="let dependent">{{ dependent.birthDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sex">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Sex</mat-header-cell>
+    <mat-cell *matCellDef="let dependent">{{ dependent.sex }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+    <mat-cell *matCellDef="let dependent">{{ dependent.status }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="partner">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Partner</mat-header-cell>
+    <mat-cell *matCellDef="let dependent">{{ dependent.partner.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Dependent" id="addDependent" (click)="onAdd()">
+        <mat-icon>reduce_capacity</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let dependent" class="action-space">
+      <button mat-icon-button aria-label="Edit Dependent" (click)="onEdit(dependent)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Dependent"
+        (click)="onDelete(dependent)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
