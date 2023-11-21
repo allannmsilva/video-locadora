@@ -37,7 +37,8 @@
       </button>
     </mat-header-cell>
     <mat-cell *matCellDef="let dependent" class="action-space">
-      <button mat-icon-button aria-label="Edit Dependent" (click)="onEdit(dependent)">
+      <button mat-icon-button aria-label="Edit Dependent" disabled="{{dependent.partner.status === 'Inactive'}}"
+        (click)="onEdit(dependent)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Dependent"

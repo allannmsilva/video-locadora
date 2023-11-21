@@ -1,3 +1,4 @@
+import { first } from 'rxjs';
 import { Dependent } from '../../model/dependent';
 import { Location, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -67,7 +68,7 @@ export class DependentFormComponent implements OnInit {
 
     this.partnersService.list().subscribe({
       next: (partner: Partner[]) => {
-        this.partners.push(...partner);
+        this.partners.push(...partner.filter(p => p.status === "Active"));
         let value: Partner = {} as Partner;
         const add = this.partners.find(partner =>
           partner._id === this.dependent.partner._id
@@ -100,7 +101,7 @@ export class DependentFormComponent implements OnInit {
   }
 
   private onError() {
-    this.openSnackbar('An error ocurred while creating a new dependent!');
+    this.openSnackbar("Partner can't have more than 3 active dependents!");
   }
 
   private onSucess() {
