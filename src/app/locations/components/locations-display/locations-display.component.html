@@ -1,0 +1,76 @@
+<mat-form-field appearance="outline">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="item">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Item</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.item.serialNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="customer">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Customer</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.customer.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="worth">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Worth</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.worth }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fine">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Fine</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.fine }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="estimatedDevolutionDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Estimated Devolution Date</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.estimatedDevolutionDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="devolutionDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Devolution Date</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.devolutionDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="locationDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Location Date</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.locationDate }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="paid">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Paid</mat-header-cell>
+    <mat-cell *matCellDef="let location">{{ location.paid }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-space">
+      <button mat-mini-fab aria-label="Add Location" id="addLocation" (click)="onAdd()">
+        <mat-icon>shop</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let location" class="action-space">
+      <button mat-icon-button [hidden]="location.paid === 'No' || location.devolutionDate === null"
+        aria-label="Edit Location" (click)="onEdit(location)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button [hidden]="location.devolutionDate !== null" aria-label="Return Location"
+        (click)="onReturn(location)">
+        <mat-icon>reply</mat-icon>
+      </button>
+      <button mat-icon-button [hidden]="location.paid === 'Yes' || location.devolutionDate === null"
+        aria-label="Pay Location" (click)="onPay(location)">
+        <mat-icon>attach_money</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" onclick="this.blur()" aria-label="Remove Location"
+        (click)="onDelete(location)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

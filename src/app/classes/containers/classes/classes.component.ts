@@ -18,7 +18,7 @@ export class ClassesComponent implements OnInit {
 
   classes$: Observable<Class[]> | null = null;
   //classes: Class[] = [];
-  displayedColumns = ['name', 'worth', 'devolutionDate', 'actions'];
+  displayedColumns = ['name', 'worth', 'returnDeadline', 'actions'];
   //classesService: ClassesService;
 
   constructor(

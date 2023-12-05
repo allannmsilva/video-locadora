@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
 
 import { Class } from '../model/class';
 
@@ -14,11 +14,7 @@ export class ClassesService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Class[]>(this.API)
-      .pipe(
-        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(classes => console.log(classes))
-      );
+    return this.httpClient.get<Class[]>(this.API);
   }
 
   findById(_id: string) {

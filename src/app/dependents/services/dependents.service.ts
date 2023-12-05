@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
 
 import { Dependent } from '../model/dependent';
 
@@ -14,11 +14,7 @@ export class DependentsService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Dependent[]>(this.API)
-      .pipe(
-        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(dependents => console.log(dependents))
-      );
+    return this.httpClient.get<Dependent[]>(this.API);
   }
 
   findById(_id: string) {

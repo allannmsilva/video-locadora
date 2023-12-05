@@ -1,0 +1,83 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar color="primary">Location Details</mat-toolbar>
+  </mat-card-header>
+  <mat-card-content style="margin-top: 10px;">
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field appearance="outline" class="full-width" color="accent">
+        <mat-label>Item</mat-label>
+        <mat-select formControlName="item" required>
+          <mat-option *ngFor="let item of items" [value]="item">
+            {{ item.serialNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" color="accent">
+        <mat-label>Customer</mat-label>
+        <mat-select formControlName="customer" required>
+          <mat-option *ngFor="let customer of customers" [value]="customer">
+            {{ customer.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" color="accent">
+        <mat-label>Worth </mat-label>
+        <input matInput formControlName="worth" #worth type="number" />
+        <mat-error *ngIf="form.get('worth')?.invalid">{{onFieldError('worth')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+        <mat-label>Estimated Devolution Date </mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="estimatedDevolutionDate" #estimatedDevolutionDate
+          maxlength="10" readonly />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-hint align="end">{{estimatedDevolutionDate.value.length || 0}}/10</mat-hint>
+        <mat-error
+          *ngIf="form.get('estimatedDevolutionDate')?.invalid">{{onFieldError('estimatedDevolutionDate')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+        <mat-label>Devolution Date </mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="devolutionDate" #devolutionDate maxlength="10" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-hint align="end">{{devolutionDate.value.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="form.get('devolutionDate')?.invalid">{{onFieldError('devolutionDate')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+        <mat-label>Location Date </mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="locationDate" #locationDate maxlength="10"
+          readonly />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-hint align="end">{{locationDate.value.length || 0}}/10</mat-hint>
+        <mat-error *ngIf="form.get('locationDate')?.invalid">{{onFieldError('locationDate')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+        <mat-label>Paid</mat-label>
+        <mat-select formControlName="paid" required>
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-fab extended color="warn" (click)="onCancel()">
+      <mat-icon>clear</mat-icon>
+      Cancel
+    </button><button mat-fab extended (click)="onSubmit()" id="saveButton">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
 
 import { Actor } from '../model/actor';
 
@@ -14,11 +14,7 @@ export class ActorsService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Actor[]>(this.API)
-      .pipe(
-        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(actors => console.log(actors))
-      );
+    return this.httpClient.get<Actor[]>(this.API);
   }
 
   findById(_id: string) {

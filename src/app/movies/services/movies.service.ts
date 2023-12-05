@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
 
 import { Movie } from '../model/movie';
 
@@ -14,11 +14,7 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Movie[]>(this.API)
-      .pipe(
-        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(movies => console.log(movies))
-      );
+    return this.httpClient.get<Movie[]>(this.API);
   }
 
   findById(_id: string) {

@@ -15,5 +15,5 @@ export const classResolver: ResolveFn<Class> =
       return classesService.findById(route.params['_id']);
     }
 
-    return of({ _id: '', name: '', worth: '', devolutionDate: '' });
+    return of({ _id: '', name: '', worth: '', returnDeadline: '' });
   };

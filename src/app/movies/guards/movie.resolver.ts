@@ -15,5 +15,5 @@ export const movieResolver: ResolveFn<Movie> =
       return moviesService.findById(route.params['_id']);
     }
 
-    return of({ _id: '', name: '', year: '', synopsis: '', category: '', director: { _id: '', name: '' }, c: { _id: '', name: '', worth: '', devolutionDate: '' }, cast: [] });
+    return of({ _id: '', name: '', year: '', synopsis: '', category: '', director: { _id: '', name: '' }, c: { _id: '', name: '', worth: '', returnDeadline: '' }, cast: [] });
   };

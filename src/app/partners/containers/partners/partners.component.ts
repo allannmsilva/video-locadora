@@ -71,7 +71,7 @@ export class PartnersComponent implements OnInit {
             this.snackBar.open('Partner deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the partner')
+          error: () => this.onError('You cannot inactivate or remove a partner who has locations!')
         },
         );
       }

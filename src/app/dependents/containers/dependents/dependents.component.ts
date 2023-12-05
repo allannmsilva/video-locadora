@@ -71,7 +71,7 @@ export class DependentsComponent implements OnInit {
             this.snackBar.open('Dependent deleted successfully!', 'Close', { duration: 5000, verticalPosition: 'bottom', horizontalPosition: 'center' });
             this.refresh();
           },
-          error: () => this.onError('An error occurred while attempting to remove the dependent')
+          error: () => this.onError('You cannot inactivate or remove a dependent who has locations!')
         },
         );
       }

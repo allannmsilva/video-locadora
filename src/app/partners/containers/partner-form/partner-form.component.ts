@@ -73,7 +73,7 @@ export class PartnerFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => this.onError() });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSuccess(), error: () => this.onError() });
   }
 
   onCancel() {
@@ -85,10 +85,10 @@ export class PartnerFormComponent implements OnInit {
   }
 
   private onError() {
-    this.openSnackbar('An error ocurred while creating a new partner!');
+    this.openSnackbar('You cannot inactivate or remove a partner who has locations!');
   }
 
-  private onSucess() {
+  private onSuccess() {
     this.openSnackbar('Partner saved successfuly!');
     this.onCancel();
   }

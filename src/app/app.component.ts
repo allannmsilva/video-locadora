@@ -42,4 +42,8 @@ export class AppComponent {
   onDependents() {
     this._router.navigate(['dependents'], { relativeTo: this._route });
   }
+
+  onLocations() {
+    this._router.navigate(['locations'], { relativeTo: this._route });
+  }
 }

@@ -45,7 +45,7 @@ export class ClassFormComponent implements OnInit {
     Validators.minLength(2),
     Validators.maxLength(100)]],
     worth: ['', [Validators.required]],
-    devolutionDate: ['', [Validators.required, Validators.maxLength(10),]],
+    returnDeadline: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(2),]],
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
@@ -57,7 +57,7 @@ export class ClassFormComponent implements OnInit {
 
   ngOnInit(): void {
     const c: Class = this.route.snapshot.data['class'];
-    this.form.setValue({ _id: c._id, name: c.name, worth: c.worth, devolutionDate: c.devolutionDate, });
+    this.form.setValue({ _id: c._id, name: c.name, worth: c.worth, returnDeadline: c.returnDeadline, });
   }
 
   onSubmit() {

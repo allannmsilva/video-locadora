@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { first } from 'rxjs';
 
 import { Partner } from '../model/partner';
 
@@ -14,11 +14,7 @@ export class PartnersService {
   constructor(private httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Partner[]>(this.API)
-      .pipe(
-        first(), /* take(1) - servidor dá a resposta, utiliza e finaliza inscrição na origem de dados */
-        tap(partners => console.log(partners))
-      );
+    return this.httpClient.get<Partner[]>(this.API);
   }
 
   findById(_id: string) {

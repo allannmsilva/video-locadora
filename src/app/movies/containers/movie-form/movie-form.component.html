@@ -5,14 +5,14 @@
 
   <form [formGroup]="form" class="min-width">
     <mat-card-content>
-      <mat-form-field class="full-width" color="accent">
+      <mat-form-field appearance="outline" class="full-width" color="accent">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" minlength="2" maxlength="50" #name>
         <mat-error *ngIf="form.get('name')?.invalid">{{ onFieldError('name') }}</mat-error>
         <mat-hint align="end">{{name.value.length || 0}} / 50</mat-hint>
       </mat-form-field>
 
-      <mat-form-field class="full-width" color="accent">
+      <mat-form-field appearance="outline" class="full-width" color="accent">
         <mat-label>Year</mat-label>
         <input matInput formControlName="year" maxlength="4"
           onkeypress='return event.charCode >= 48 && event.charCode <= 57' #year>
@@ -20,14 +20,14 @@
         <mat-hint align="end">{{year.value.length || 0}} / 4</mat-hint>
       </mat-form-field>
 
-      <mat-form-field class="full-width" color="accent">
+      <mat-form-field appearance="outline" class="full-width" color="accent">
         <mat-label>Synopsis</mat-label>
         <textarea matInput required formControlName="synopsis" maxlength="255" #synopsis></textarea>
         <mat-error *ngIf="form.get('synopsis')?.invalid">{{ onFieldError('synopsis') }}</mat-error>
         <mat-hint align="end">{{synopsis.value.length || 0}} / 255</mat-hint>
       </mat-form-field>
 
-      <mat-form-field class="cbb-width" color="accent">
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
         <mat-label>Class</mat-label>
         <mat-select formControlName="c" required>
           <mat-option *ngFor="let c of classes" [value]="c">
@@ -36,7 +36,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="cbb-width" color="accent">
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
         <mat-label>Director</mat-label>
         <mat-select formControlName="director" required>
           <mat-option *ngFor="let director of directors" [value]="director">
@@ -45,7 +45,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="cbb-width" color="accent">
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
         <mat-label>Cast</mat-label>
         <mat-select multiple formControlName="cast" required>
           <mat-option *ngFor="let actor of cast" [value]="actor">
@@ -54,7 +54,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="cbb-width" color="accent">
+      <mat-form-field appearance="outline" class="cbb-width" color="accent">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category" required>
           <mat-option value="Horror">Horror</mat-option>
@@ -67,11 +67,11 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-fab color="warn" (click)="onCancel()">
-        <mat-icon>clear</mat-icon>
+      <button mat-button color="warn" (click)="onCancel()">
+        Cancel
       </button>
-      <button mat-fab (click)="onSubmit()" id="saveButton">
-        <mat-icon>save</mat-icon>
+      <button mat-button (click)="onSubmit()" id="saveButton">
+        Save
       </button>
     </mat-card-actions>
   </form>

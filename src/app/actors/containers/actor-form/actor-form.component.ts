@@ -55,7 +55,7 @@ export class ActorFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => this.onError() });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSuccess(), error: () => this.onError() });
   }
 
   onCancel() {
@@ -70,7 +70,7 @@ export class ActorFormComponent implements OnInit {
     this.openSnackbar('An error ocurred while creating a new actor!');
   }
 
-  private onSucess() {
+  private onSuccess() {
     this.openSnackbar('Actor saved successfuly!');
     this.onCancel();
   }

@@ -89,7 +89,7 @@ export class DependentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => this.onError() });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSuccess(), error: () => this.onError() });
   }
 
   onCancel() {
@@ -101,10 +101,10 @@ export class DependentFormComponent implements OnInit {
   }
 
   private onError() {
-    this.openSnackbar("Partner can't have more than 3 active dependents!");
+    this.openSnackbar("Partner can't have more than 3 active dependents / You cannot inactivate or remove a partner who has locations!");
   }
 
-  private onSucess() {
+  private onSuccess() {
     this.openSnackbar('Dependent saved successfuly!');
     this.onCancel();
   }

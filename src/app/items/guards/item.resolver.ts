@@ -15,5 +15,5 @@ export const itemResolver: ResolveFn<Item> =
       return itemsService.findById(route.params['_id']);
     }
 
-    return of({ _id: '', movie: { _id: '', name: '', year: '', synopsis: '', category: '', director: { _id: '', name: '' }, c: { _id: '', name: '', worth: '', devolutionDate: '' }, cast: [] }, serialNumber: '', type: '', acquisitionDate: '' });
+    return of({ _id: '', movie: { _id: '', name: '', year: '', synopsis: '', category: '', director: { _id: '', name: '' }, c: { _id: '', name: '', worth: '', returnDeadline: '' }, cast: [] }, serialNumber: '', type: '', acquisitionDate: '' });
   };

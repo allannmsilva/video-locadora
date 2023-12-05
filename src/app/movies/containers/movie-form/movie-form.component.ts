@@ -117,7 +117,7 @@ export class MovieFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({ next: () => this.onSucess(), error: () => this.onError() });
+    this.service.save(this.form.value).subscribe({ next: () => this.onSuccess(), error: () => this.onError() });
   }
 
   onCancel() {
@@ -132,7 +132,7 @@ export class MovieFormComponent implements OnInit {
     this.openSnackbar('An error ocurred while creating a new movie!');
   }
 
-  private onSucess() {
+  private onSuccess() {
     this.openSnackbar('Movie saved successfuly!');
     this.onCancel();
   }
