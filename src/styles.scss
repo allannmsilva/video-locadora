@@ -1,14 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-@import '@angular/material/theming';
-@include mat-core();
+@use '@angular/material' as mat;
 
-$custom-app-primary: mat-palette($mat-gray, 900);
-$custom-app-secondary: mat-palette($mat-gray, 200);
-$custom-app-warn: mat-palette($mat-red, 600);
+@include mat.core();
 
-$custom-theme: mat-dark-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+$my-primary: mat.define-palette(mat.$purple-palette, 800);
+$my-accent: mat.define-palette(mat.$purple-palette, 900);
 
-@include angular-material-theme($custom-theme);
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
+
+@include mat.all-component-themes($my-theme);
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;

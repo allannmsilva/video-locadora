@@ -4,14 +4,14 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form" class="min-width">
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Name </mat-label>
         <input matInput formControlName="name" minlength="2" maxlength="100" #name />
         <mat-hint align="end">{{name.value.length || 0}}/100</mat-hint>
         <mat-error *ngIf="form.get('name')?.invalid">{{onFieldError('name')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Birth Date </mat-label>
         <input matInput [matDatepicker]="picker" formControlName="birthDate" #birthDate maxlength="10" readonly />
         <mat-hint>MM/DD/YYYY</mat-hint>
@@ -21,7 +21,7 @@
         <mat-error *ngIf="form.get('birthDate')?.invalid">{{onFieldError('birthDate')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Sex</mat-label>
         <mat-select formControlName="sex" required>
           <mat-option value="Male">Male</mat-option>
@@ -30,7 +30,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Status</mat-label>
         <mat-select formControlName="status" required>
           <mat-option value="Active">Active</mat-option>
@@ -38,28 +38,28 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Address </mat-label>
         <input matInput formControlName="address" minlength="20" maxlength="200" #address />
         <mat-hint align="end">{{address.value.length || 0}}/200</mat-hint>
         <mat-error *ngIf="form.get('address')?.invalid">{{onFieldError('address')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Phone </mat-label>
         <input matInput formControlName="phone" minlength="9" maxlength="9" #phone />
         <mat-hint align="end">{{phone.value.length || 0}}/9</mat-hint>
         <mat-error *ngIf="form.get('phone')?.invalid">{{onFieldError('phone')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>CPF </mat-label>
         <input matInput formControlName="cpf" minlength="11" maxlength="11" #cpf />
         <mat-hint align="end">{{cpf.value.length || 0}}/11</mat-hint>
         <mat-error *ngIf="form.get('cpf')?.invalid">{{onFieldError('cpf')}}</mat-error>
       </mat-form-field>
 
-      <!-- <mat-form-field appearance="outline" class="full-width" color="accent">
+      <!-- <mat-form-field class="full-width" color="accent">
         <mat-label>Gênero</mat-label>
         <mat-select formControlName="genre">
           <mat-option value="Ação">Ação</mat-option>

@@ -57,7 +57,7 @@ export class LocationsDisplayComponent implements OnInit, AfterViewInit {
     let expectedReturnDate = new Date(location.estimatedDevolutionDate);
     let fineCharged = 0;
     if (returnDate.valueOf() > expectedReturnDate.valueOf()) {
-      fineCharged = (location.item.movie.c.worth as unknown as number * Math.floor((returnDate.valueOf() - expectedReturnDate.valueOf()) / (24 * 60 * 60 * 1000)) + (location.worth as unknown as number));
+      fineCharged = (location.item.movie.c.worth as unknown as number * Math.floor((returnDate.valueOf() - expectedReturnDate.valueOf()) / (24 * 60 * 60 * 1000)));
     }
     location.fine = fineCharged.toString();
     location.devolutionDate = formatDate(returnDate, 'yyyy-MM-dd', 'en-US');

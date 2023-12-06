@@ -102,7 +102,7 @@ export class LocationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form.setValue({ _id: this.location._id, item: this.location.item, customer: this.location.customer, worth: this.location.worth, fine: this.location.fine, estimatedDevolutionDate: this.location.estimatedDevolutionDate, devolutionDate: this.location.devolutionDate, locationDate: this.location.locationDate, paid: this.location.paid });
+    this.form.setValue({ _id: this.location._id, item: this.location.item, customer: this.location.customer, worth: this.location.worth, fine: this.location.fine, estimatedDevolutionDate: this.fixDate(this.location.estimatedDevolutionDate), devolutionDate: this.fixDate(this.location.devolutionDate), locationDate: this.fixDate(this.location.locationDate), paid: this.location.paid });
   }
 
   onSubmit() {
@@ -111,7 +111,7 @@ export class LocationFormComponent implements OnInit {
     let expectedReturnDate = new Date(location.estimatedDevolutionDate);
     let fineCharged = 0;
     if (returnDate.valueOf() > expectedReturnDate.valueOf()) {
-      fineCharged = (location.worth as unknown as number * Math.floor((returnDate.valueOf() - expectedReturnDate.valueOf()) / (24 * 60 * 60 * 1000)) + (location.worth as unknown as number));
+      fineCharged = (location.worth as unknown as number * Math.floor((returnDate.valueOf() - expectedReturnDate.valueOf()) / (24 * 60 * 60 * 1000)));
     }
     location.fine = fineCharged.toString();
     this.service.save(location).subscribe({ next: () => this.onSuccess(), error: () => this.onError() });
@@ -119,6 +119,12 @@ export class LocationFormComponent implements OnInit {
 
   onCancel() {
     this.locationService.back();
+  }
+
+  private fixDate(date: string) {
+    let edd = new Date(date);
+    edd.setDate(edd.getDate() + 2);
+    return formatDate(edd, 'yyyy-MM-dd', 'en-US');
   }
 
   private openSnackbar(message: string) {

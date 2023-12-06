@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content style="margin-top: 10px;">
     <form [formGroup]="form" class="min-width">
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Item</mat-label>
         <mat-select formControlName="item" required>
           <mat-option *ngFor="let item of items" [value]="item">
@@ -13,7 +13,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Customer</mat-label>
         <mat-select formControlName="customer" required>
           <mat-option *ngFor="let customer of customers" [value]="customer">
@@ -22,13 +22,13 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width" color="accent">
+      <mat-form-field class="full-width" color="accent">
         <mat-label>Worth </mat-label>
         <input matInput formControlName="worth" #worth type="number" />
         <mat-error *ngIf="form.get('worth')?.invalid">{{onFieldError('worth')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Estimated Devolution Date </mat-label>
         <input matInput [matDatepicker]="picker" formControlName="estimatedDevolutionDate" #estimatedDevolutionDate
           maxlength="10" readonly />
@@ -40,7 +40,7 @@
           *ngIf="form.get('estimatedDevolutionDate')?.invalid">{{onFieldError('estimatedDevolutionDate')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Devolution Date </mat-label>
         <input matInput [matDatepicker]="picker1" formControlName="devolutionDate" #devolutionDate maxlength="10" />
         <mat-hint>MM/DD/YYYY</mat-hint>
@@ -50,7 +50,7 @@
         <mat-error *ngIf="form.get('devolutionDate')?.invalid">{{onFieldError('devolutionDate')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Location Date </mat-label>
         <input matInput [matDatepicker]="picker2" formControlName="locationDate" #locationDate maxlength="10"
           readonly />
@@ -61,7 +61,7 @@
         <mat-error *ngIf="form.get('locationDate')?.invalid">{{onFieldError('locationDate')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="cbb-width" color="accent">
+      <mat-form-field class="cbb-width" color="accent">
         <mat-label>Paid</mat-label>
         <mat-select formControlName="paid" required>
           <mat-option value="Yes">Yes</mat-option>
